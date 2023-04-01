@@ -1,0 +1,11 @@
+STEPS :
+1 Identified that the original component needed to be refactored: it was handling both calculations/logic and presentation/rendering
+2 Copied the original component to a new containers/ folder and renamed it GuineaPigsContainer
+3 Removed all of the presentation/rendering code from the container component
+4 Removed all of the calculation/logic code from the presentational component
+5 Accessed the presentational component from within the container using import and export
+6 Edited the container’s render() method to render the presentational component with the proper props
+
+
+
+In this programming pattern, the container component does the work of figuring out what to display. The presentational component does the work of actually displaying it. If a component does a significant amount of work in both areas, then that’s a sign that you should use this pattern!
