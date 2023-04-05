@@ -19,7 +19,7 @@ export class Profile extends React.Component {
     const isLoading = this.state.userData === null ? true : false;
     let bio;
     let friends;
-
+    let name;
     let className = 'Profile';
     if (isLoading) {
       className += ' loading';
@@ -47,18 +47,21 @@ export class Profile extends React.Component {
     );
   }
 
+  // fetch the data when we click on a profile
   componentDidMount() {
     this.loadUserData();
   }
 
+  // cancel fetch when leaving a profile
   componentWillUnmount() {
-    cancelFetch(this.fetchID)
+    cancelFetch(this.fetchID);
   }
 
+  // fetch the new data when going from a profile to another one
   componentDidUpdate(prevProps) {
     if (this.props.username !== prevProps.username) {
       cancelFetch(this.fetchID);
-      this.loadUserData()
+      this.loadUserData();
     }
   }
 }
